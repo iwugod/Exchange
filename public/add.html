@@ -1,0 +1,23 @@
+
+
+        <!-- FORM TO CREATE Cart -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <h1>Add Product</h1>
+                <form>
+                    <div class="form-group" >
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="Product title" ng-model="formData.title" required>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Product description" ng-model="formData.description" required>
+                        <input type="number" class="form-control input-lg text-center" placeholder="Price" ng-model="formData.price" required>
+                        <label class="btn btn-default btn-file">Browse product image<input type="file" class="hidden" file-model="formData.filename"></label>
+                    </div>
+        
+                    <!-- createCart() WILL CREATE NEW Cart -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createCart()">Add</button>
+                </form>
+            </div>
+        </div>
+
+        <!--<a href="#/">back to cart</a>-->
+      

@@ -1,0 +1,65 @@
+        <div class="container">
+            <div class="row">
+            <div class="col-md-6">
+                <h1>Items on Sales</h1>
+                <div class="row item" ng-repeat="cart in carts">
+                    <div class="col-sm-2 no-padding">
+                        <div class="image-box">
+                            <img src="/images/box-1.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 no-padding description">
+                        <h4>{{cart.title }}</h4>
+                        <p class="desc">{{cart.description}}</p> 
+                    </div>
+                    <div class="col-sm-3 no-padding quantity">
+                        <input class="form-control input-qty" ng-model="cart.quantity" type="number" min="0" step="1">
+                        <button type="button" data-id="{{cart._id}}" class="btn btn-primary btn-sm btn-add" ng-click="getElementID(cart)">Add</button>
+                    </div>
+                    <div class="col-sm-1 no-padding item-price">
+                        <span>${{cart.price}}</span>
+                    </div>
+            </div>
+        
+            </div>
+            <div class="col-md-6">
+                <h1>Your Order</h1>
+                <h3>{{cookie.length}} items in your cart </h3>
+                <div class="row item" ng-repeat="item in cookie">
+                    <div class="col-sm-2 no-padding">
+                        <div class="image">
+                            <img src="/images/box-1.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 no-padding description">
+                        <h4>{{item.title}}</h4>
+                        <p class="desc">{{item.description}}</p> 
+                    </div>
+                    <div class="col-sm-1 no-padding item-price">
+                        <span class="-item-price">${{item.price}}</span>
+                    </div>
+                    <div class="col-sm-3 no-padding quantity">
+                        <input class="form-control addqty"  type="number" placeholder="{{item.quantity}}" min="0" step="1">
+                        <span class="glyphicon glyphicon-remove"  alt="icon" ng-click="removeItem(item._id)"></span>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-8">Copyright Notice © 2016-2017 Nosunset.com Mauritius Limited and licensors. All rights reserved.</div>
+                <div class="col-xs-6 col-md-4">
+                    <div class="checkout" >
+                        <label>
+                            <span class="dollar-sign">Total</span>
+                            <span class="sum-items">${{sum}}</span>
+                            <input type="submit" class="btn-checkout" value="checkout" ng-click="getTotal()"></button>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            </di>
+       
