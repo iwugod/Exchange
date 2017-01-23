@@ -1,6 +1,6 @@
 //service
 
-angular.module('cartService', [])
+angular.module('myApp')
 
 // super simple service
 // each function returns a promise object 
@@ -24,6 +24,11 @@ angular.module('cartService', [])
 
         delete : function(id) {
             return $http.delete('/api/cart/' + id);
+        },
+
+        data : {
+            firstname:'Hello',
+            lastname : 'Hippo'
         }
 
     }

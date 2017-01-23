@@ -1,17 +1,17 @@
-        <div class="container" ng-controller="viewController">
+        <div class="container">
             <div class="row">
-            <div class="col-md-6" ng-init="getOrder()">
+            <div class="col-md-6">
                 <h1>Your Order</h1>
-                <h3>{{cookie.length}} items in your cart </h3>
-                <p class="desc">{{order}}</p> 
-                <div class="row item" ng-repeat="item in cookie">
+                <h3>{{selection.length}} items in your cart </h3>
+                <!--<p class="desc">{{order}}</p> -->
+              <div class="row item" ng-repeat="item in selection">
                     <div class="col-sm-2 no-padding">
                         <div class="image">
                             <img src="/images/box-1.png">
                         </div>
                     </div>
-                    <div class="col-sm-5 no-padding description" ng-init="getOrder()">
-                        <h4>{{order}}</h4>
+                    <div class="col-sm-5 no-padding description">
+                        <h4>{{item.title}}</h4>
                         <p class="desc">{{item.description}}</p> 
                     </div>
                     <div class="col-sm-1 no-padding item-price">
@@ -41,4 +41,3 @@
                 </div>
             </div>
             </di>
-       

@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ngRoute','cartController', 'cController', 'cartService']);
+var app = angular.module('myApp',['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -10,9 +10,9 @@ app.config(function($routeProvider) {
         templateUrl : "add.html",
         controller : "mainController"
     })
-    .when("/view", {
-        templateUrl : "view.html",
-        controller : "viewController"
+     .when("/checkout", {
+        templateUrl : "checkout.html",
+        controller : "checkController"
     })
    .otherwise({
         template : "<h1>None</h1><p>Nothing has been selected,</p>"

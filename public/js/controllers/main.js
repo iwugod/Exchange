@@ -1,12 +1,12 @@
-angular.module('cartController', [])
+angular.module('myApp')
 
-
-.controller('mainController', function($scope, $http, Carts){
+.controller('mainController', function($scope, $http, Carts, userOrder){
     $scope.formData = {};
     $scope.selectedCarts = {
         items: []
     };
 
+    console.log(Carts.data.firstname);
 // GET =====================================================================
     //when loading the landing page get all carts and show them
 // use the service to get all the carts
@@ -31,6 +31,8 @@ angular.module('cartController', [])
         });
         
         $scope.cookie = $scope.selectedCarts.items;
+        userOrder.selectedOrder = $scope.cookie;
+        console.log(userOrder.selectedOrder);
         /**$cookies.putObject('data',$scope.selectedCarts.items);
         $scope.cookie = $cookies.getObject('data');
         console.log($scope.carts);**/
@@ -39,13 +41,13 @@ angular.module('cartController', [])
 
     //Remove item from cart
      $scope.removeItem = function(index) {
-        $scope.cookie.splice(index, 1);
+        userOrder.selectedOrder.splice(index, 1);
     },
 
     //sum the total price of the transaction
     $scope.getTotal = function() {
         var total = 0;
-        angular.forEach($scope.cookie, function(item) {
+        angular.forEach(userOrder.selectedOrder, function(item) {
         $scope.sum =  total += item.price * item.quantity;
         //console.log(total);
     })
@@ -83,13 +85,13 @@ angular.module('cartController', [])
      };
 })
 
-.controller('viewController', function($scope) {
+/*.controller('viewController', function($scope) {
     $scope.order = {};
 
     $scope.getOrder = function() {
         $scope.order = "Hello";
     }
-})
+})*/
 
 
 /*.directive('addToCart', function(){
