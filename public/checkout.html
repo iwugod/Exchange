@@ -1,10 +1,10 @@
         <div class="container">
             <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" ng-repeat="item in selection">
                 <h1>Your Order</h1>
                 <h3>{{selection.length}} items in your cart </h3>
                 <!--<p class="desc">{{order}}</p> -->
-              <div class="row item" ng-repeat="item in selection">
+              <div class="row item" >
                     <div class="col-sm-2 no-padding">
                         <div class="image">
                             <img src="/images/box-1.png">
@@ -18,12 +18,17 @@
                         <span class="-item-price">${{item.price}}</span>
                     </div>
                     <div class="col-sm-3 no-padding quantity">
-                        <input class="form-control addqty"  type="number" placeholder="{{item.quantity}}" min="0" step="1">
+                        <input class="form-control addqty"  type="number" ng-model="item.quantity" min="0" step="1">
                         <span class="glyphicon glyphicon-remove"  alt="icon" ng-click="removeItem(item._id)"></span>
                     </div>
+
+                      <div class="col-sm-1 no-padding item-price">
+                        <span class="-item-price">${{item.price * item.quantity}}</span>
+                    </div>
+                
                     
                 </div>
-                
+
             </div>
             </div>
 
@@ -34,7 +39,7 @@
                         <label>
                             <span class="dollar-sign">Total</span>
                             <span class="sum-items">${{sum}}</span>
-                            <input type="submit" class="btn-checkout" value="checkout" ng-click="getTotal()"></button>
+                            <input type="submit" class="btn-checkout" value="checkout" ng-click="Total()"></button>
                         </label>
                     </div>
 

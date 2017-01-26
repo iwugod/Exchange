@@ -41,7 +41,7 @@ angular.module('myApp')
     },
 
     //sum the total price of the transaction
-    $scope.getTotal = function() {
+    $scope.Total = function() {
         var total = 0;
         angular.forEach(userOrder.get(), function(item) {
         $scope.sum =  total += item.price * item.quantity;
