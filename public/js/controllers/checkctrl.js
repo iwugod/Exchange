@@ -4,10 +4,9 @@ angular.module('myApp')
 .controller('checkController', function($scope,userOrder){
     //$scope.order = Carts.data.firstname;
     //getter method for order
-    $scope.selection = userOrder.selectedOrder;
+    $scope.selection = userOrder.get();
     
 })
-
 
 }());
 

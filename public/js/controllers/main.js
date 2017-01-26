@@ -31,24 +31,20 @@ angular.module('myApp')
         });
         
         $scope.cookie = $scope.selectedCarts.items;
-        userOrder.selectedOrder = $scope.cookie;
-        console.log(userOrder.selectedOrder);
-        /**$cookies.putObject('data',$scope.selectedCarts.items);
-        $scope.cookie = $cookies.getObject('data');
-        console.log($scope.carts);**/
-       
+        var result = userOrder.set($scope.cookie);
+        //console.log(result);
     }
 
     //Remove item from cart
      $scope.removeItem = function(index) {
-        userOrder.selectedOrder.splice(index, 1);
+        userOrder.get().splice(index, 1);
     },
 
     //sum the total price of the transaction
     $scope.getTotal = function() {
         var total = 0;
-        angular.forEach(userOrder.selectedOrder, function(item) {
-        $scope.sum =  total += item.price * item.quantity;
+        angular.forEach(userOrder.get(), function(item) {
+        total += item.price * item.quantity;
         //console.log(total);
     })
 

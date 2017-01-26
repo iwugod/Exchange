@@ -9,7 +9,7 @@
 6 silly lifecycle quickcart@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle quickcart@1.0.0~start: quickcart@1.0.0
 8 verbose lifecycle quickcart@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle quickcart@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Node_Project\Nosunset\Exchange\node_modules\.bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\iwugod-pc\AppData\Roaming\npm;C:\Ruby23-x64\bin;C:\Program Files\nodejs\;C:\Users\iwugod-pc\AppData\Local\Microsoft\WindowsApps;C:\Users\iwugod-pc\AppData\Local\atom\bin;C:\Program Files (x86)\Microsoft VS Code\bin
+9 verbose lifecycle quickcart@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Node_Project\Nosunset\Exchange\node_modules\.bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft\Web Platform Installer\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\iwugod-pc\AppData\Roaming\npm;C:\Ruby23-x64\bin;C:\Program Files\nodejs\;C:\Users\iwugod-pc\AppData\Local\Microsoft\WindowsApps;C:\Users\iwugod-pc\AppData\Local\atom\bin;C:\Program Files (x86)\Microsoft VS Code\bin
 10 verbose lifecycle quickcart@1.0.0~start: CWD: C:\Node_Project\Nosunset\Exchange
 11 silly lifecycle quickcart@1.0.0~start: Args: [ '/d /s /c', 'node server.js' ]
 12 silly lifecycle quickcart@1.0.0~start: Returned: code: 1  signal: null
