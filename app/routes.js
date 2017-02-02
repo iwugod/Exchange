@@ -74,7 +74,21 @@ module.exports = function(app) {
         });
     });
 
-
+    app.put('/api/cart/:_id',function(req, res) {
+        CtList.findById({
+            _id : req.params._id
+        }, function(err, cart) {
+            if(err)
+                res.send(err)
+            cart.quantity = req.body.quantity;
+            
+            cart.save(function(err){
+                if(err)
+                res.send(err);
+                res.send(cart + "Updated");
+            })
+        });
+    });
  
 
 };

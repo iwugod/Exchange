@@ -1,48 +1,46 @@
-        <div class="container">
-            <div class="row">
-            <div class="col-md-6" ng-repeat="item in selection">
-                <h1>Your Order</h1>
-                <h3>{{selection.length}} items in your cart </h3>
-                <!--<p class="desc">{{order}}</p> -->
-              <div class="row item" >
-                    <div class="col-sm-2 no-padding">
-                        <div class="image">
-                            <img src="/images/box-1.png">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-11">
+            <div class="stock-wrapper">
+                <h3 class="item-h4"><span class="glyphicon glyphicon-shopping-cart"></span><span class="item-count">{{selection.length}} items</span> in your cart </h3>
+                <div class="row cart-box" ng-repeat="item in selection">
+                    <div class="col-xs-3 col-sm-3">
+                        <img src="/images/box-1.png" class="item-img">
+                    </div>
+
+                    <div class="col-xs-5 col-sm-5 col-sm-offset-0">
+                        <div class="item-desc">
+                            <h4 class="item-title">{{item.title }}</h4>
+                            <p class="item-desc">{{item.description}}</p> 
+                        </div>
+                        <div class="item-qty">
+                            <input class="form-control input-qty"  type="number" ng-model="item.quantity" min="0" step="1" ng-change="Total()">
+                            <span class="glyphicon glyphicon-remove"  alt="icon" ng-click="Total(); removeItem(item);"></span>
                         </div>
                     </div>
-                    <div class="col-sm-5 no-padding description">
-                        <h4>{{item.title}}</h4>
-                        <p class="desc">{{item.description}}</p> 
-                    </div>
-                    <div class="col-sm-1 no-padding item-price">
-                        <span class="-item-price">${{item.price}}</span>
-                    </div>
-                    <div class="col-sm-3 no-padding quantity">
-                        <input class="form-control addqty"  type="number" ng-model="item.quantity" min="0" step="1">
-                        <span class="glyphicon glyphicon-remove"  alt="icon" ng-click="removeItem(item._id)"></span>
-                    </div>
 
-                      <div class="col-sm-1 no-padding item-price">
-                        <span class="-item-price">${{item.price * item.quantity}}</span>
+                <div class="col-xs-3 col-sm-3">
+                    <div class="item-unit">
+                        <span>Unit{{item.price | currency}}</span>
                     </div>
-                
-                    
-                </div>
-
-            </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12 col-md-8">Copyright Notice © 2016-2017 Nosunset.com Mauritius Limited and licensors. All rights reserved.</div>
-                <div class="col-xs-6 col-md-4">
-                    <div class="checkout" >
-                        <label>
-                            <span class="dollar-sign">Total</span>
-                            <span class="sum-items">${{sum}}</span>
-                            <input type="submit" class="btn-checkout" value="checkout" ng-click="Total()"></button>
-                        </label>
+                    <div class="item-price">
+                        <span>Total{{item.price*item.quantity | currency}}</span>
                     </div>
-
                 </div>
             </div>
-            </di>
+           
+            <div class="chck-option">
+                <div class="col-xs-6 col-sm-7 col-sm-offset-0">
+                    <div class="dollar-sign">Subtotal:</div>
+                    <div class="sum-items">{{Total() | currency}}</div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3">
+                    <input type="submit" class="btn-checkout" ng-click="updateCart()" value="checkout"></button>
+                </div>
+            </div>
+                   
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,11 @@
 {
-  "name": "quickcart",
+  "name": "exchange",
   "version": "1.0.0",
   "description": "shopping cart",
   "main": "index.js",
   "scripts": {
-    "test": "Hello"
+    "test": "Hello",
+    "start": "node server.js"
   },
   "keywords": [
     "cart"
@@ -19,5 +20,19 @@
     "mongoose": "^4.7.6",
     "morgan": "^1.7.0",
     "multer": "^1.2.1"
-  }
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iwugod/Exchange.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iwugod/Exchange/issues"
+  },
+  "homepage": "https://github.com/iwugod/Exchange#readme"
 }

@@ -11,25 +11,26 @@ angular.module('myApp')
         get : function() {
             return $http.get('/api/cart');
         },
-       /* getByID : function(id) {
+        getByID : function(id) {
             return $http.get('/api/cart/' + id)
-        },*/
+        },
+
         create : function() {
             return $http.post('/api/cart');
         },
 
-       /*  createO : function() {
-            return $http.post('/api/order');
-        },*/
+         put : function(id) {
+            return $http.put('/api/cart/'+ id);
+        },
 
         delete : function(id) {
             return $http.delete('/api/cart/' + id);
         },
 
-        data : {
+        /*data : {
             firstname:'Hello',
             lastname : 'Hippo'
-        }
+        }*/
 
     }
 })

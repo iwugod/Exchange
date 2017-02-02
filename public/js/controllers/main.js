@@ -6,7 +6,7 @@ angular.module('myApp')
         items: []
     };
 
-    console.log(Carts.data.firstname);
+    //console.log(Carts.data.firstname);
 // GET =====================================================================
     //when loading the landing page get all carts and show them
 // use the service to get all the carts
@@ -14,6 +14,7 @@ angular.module('myApp')
     Carts.get('/api/cart')
     .success(function(data){
         $scope.carts = data;
+        //console.log($scope.carts)
     })
     .error(function(data){
         console.log('Error', + data);
@@ -29,7 +30,7 @@ angular.module('myApp')
             description: index.description,
             price: index.price
         });
-        
+    
         $scope.cookie = $scope.selectedCarts.items;
         var result = userOrder.set($scope.cookie);
         //console.log(result);
@@ -47,7 +48,7 @@ angular.module('myApp')
         $scope.sum =  total += item.price * item.quantity;
         //console.log(total);
     })
-
+        return total;
     },
 
      // CREATE ==================================================================
@@ -78,30 +79,7 @@ angular.module('myApp')
         .error(function(data) {
                 console.log('Error: ' + data);
         });
-     };
-})
+     }
 
-/*.controller('viewController', function($scope) {
-    $scope.order = {};
-
-    $scope.getOrder = function() {
-        $scope.order = "Hello";
-    }
-})*/
-
-
-/*.directive('addToCart', function(){
-    return {
-       restrict:'AE',
-        scope : {
-           'myOptions': '='
-        },
-        link:function(scope, element, attrs) {
-         console.log(scope.myOptions);
-         
-        },
-        templateUrl: "add-to-cart.html",
-    }
+   
 });
-*/
-

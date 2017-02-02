@@ -1,23 +1,56 @@
 
-
-        <!-- FORM TO CREATE Cart -->
-        <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <h1>Add Product</h1>
-                <form>
-                    <div class="form-group" >
-                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="Product title" ng-model="formData.title" required>
-                        <input type="text" class="form-control input-lg text-center" placeholder="Product description" ng-model="formData.description" required>
-                        <input type="number" class="form-control input-lg text-center" placeholder="Price" ng-model="formData.price" required>
-                        <label class="btn btn-default btn-file">Browse product image<input type="file" class="hidden" file-model="formData.filename"></label>
+<div class="row">   
+    <div class="col-sm-6">
+        <form class="addForm-wrapper" name="addForm" ng-submit="createCart()" novalidate>
+            <h3 class=""><span class="glyphicon glyphicon-shopping-cart">ADD ITEMS</span></h3>
+            <div class="form-group" >
+                <input type="text" name="title" class="form-control input-md" placeholder="Product title" ng-model="formData.title" ng-required="true"/>
+                    <div ng-show="addForm.title.$touched && addForm.title.$invalid">
+                        <small>Enter product title</small>
                     </div>
-        
-                    <!-- createCart() WILL CREATE NEW Cart -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createCart()">Add</button>
-                </form>
+                <input type="text" name="description" class="form-control input-md" placeholder="Product description" ng-model="formData.description" ng-required="true"/>
+                    <div ng-show="addForm.description.$touched && addForm.description.$invalid">
+                        <small>Enter product description</small>
+                    </div>
+                <input type="number" name="price" class="form-control input-md " placeholder="1" ng-model="formData.price" min="1" step="1" ng-required="true"/>
+                        <div ng-show="addForm.price.$touched && addForm.price.$invalid">
+                        <small>Enter product price</small>
+                    </div>
+                <label class="btn btn-default btn-file">Browse product image<input type="file" class="hidden" file-model="formData.filename"></label>
+                </div>
+            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="addForm.$invalid">Upload item</button>
+        </form>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="stock-wrapper">
+            <h3>DELETE ITEMS</h3>
+            <div class="row cart-box" ng-repeat="cart in carts">
+                <div class="col-xs-3 col-sm-3">
+                    <img src="/images/box-1.png" class="item-img">
+                </div>
+                
+                <div class="col-xs-5 col-sm-5 col-sm-offset-0">
+                    <div class="item-desc">
+                        <h4 class="item-title">{{cart.title }}</h4>
+                        <p class="item-desc">{{cart.description}}</p> 
+                    </div>
+                    <div class="item-qty">
+                        <input class="form-control input-qty" ng-model="cart.quantity" type="number" min="0" step="1">
+                        <span class="glyphicon glyphicon-remove"  alt="icon" ng-click="deleteCart(cart._id);"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3">
+                    <div class="item-unit">
+                        <span>Unit{{cart.price | currency}}</span>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
+    
 
-        <!--<a href="#/">back to cart</a>-->
-      
+</div>
+
