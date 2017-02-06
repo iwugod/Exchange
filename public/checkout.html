@@ -5,7 +5,7 @@
                 <h3 class="item-h4"><span class="glyphicon glyphicon-shopping-cart"></span><span class="item-count">{{selection.length}} items</span> in your cart </h3>
                 <div class="row cart-box" ng-repeat="item in selection">
                     <div class="col-xs-3 col-sm-3">
-                        <img src="/images/box-1.png" class="item-img">
+                        <img ng-src="http://localhost:3000/Uploads/{{item.image}}" class="item-img">
                     </div>
 
                     <div class="col-xs-5 col-sm-5 col-sm-offset-0">

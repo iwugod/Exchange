@@ -4,7 +4,7 @@
             <h1>Items on Sales</h1>
             <div class="row cart-box" ng-repeat="cart in carts">
                 <div class="col-xs-3 col-sm-3">
-                    <img src="/images/box-1.png" class="item-img">
+                    <img ng-model="cart.image" ng-src="http://localhost:3000/Uploads/{{cart.image}}" class="item-img">
                 </div>
                 
                 <div class="col-xs-5 col-sm-5 col-sm-offset-0">

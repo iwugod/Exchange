@@ -2,7 +2,10 @@
 
 // load the cart model
 var CtList = require('./models/cart');
-/*var OrderList = require('./models/order');*/
+//Image upload
+var multer = require('multer');
+var upload = multer({dest:__dirname+ '/public/uploads/'});
+var fs = require('fs');
 
 
 // expose the routes to our app with module.exports
@@ -35,9 +38,59 @@ module.exports = function(app) {
 
 
     // create ORDER and send back all cart after creation
-     app.post('/api/cart', function(req, res, next) {
+   /*  app.post('/api/cart', function(req, res, next) {
         // create a cart, information comes from AJAX request from Angular
         CtList.create({
+            title : req.body.title,
+            description : req.body.description,
+            price : req.body.price,
+            image : req.body.file
+        }, function(err, cart) {
+            if (err)
+                res.send(err);
+
+            // get and return all the cart after you create another
+            CtList.find(function(err, cart, next) {
+                if (err)
+                    res.send(err)
+                res.json(cart);
+            });
+        });
+
+    });*/
+
+    // create ORDER and send back all cart after creation
+     app.post('/api/cart', upload.any(), function(req, res, next) {
+         //console.log(req.files);
+          //console.log(req.body);
+          if(req.files) {
+              req.files.forEach(function(file){
+                  console.log(file);
+                  var filename = (new Date).valueOf()+ "-"+file.originalname
+                  fs.rename(file.path, 'public/uploads/'+filename, function(err){
+                      if(err) throw err;
+                      console.log("uploaded...")
+                      //save to mongoose
+                      CtList.create({
+                           title : req.body.title,
+                            description : req.body.description,
+                            price : req.body.price,
+                            image : filename
+                      }, function(err, cart){
+                          if(err)
+                          res.send(err);
+
+                          CtList.find(function(err, cart, next) {
+                              if(err)
+                                    res.send(err);
+                                res.json(cart);
+                          });
+                      });
+                  });
+              });
+          };
+        // create a cart, information comes from AJAX request from Angular
+       /* CtList.create({
             title : req.body.title,
             description : req.body.description,
             price : req.body.price,
@@ -52,7 +105,7 @@ module.exports = function(app) {
                     res.send(err)
                 res.json(cart);
             });
-        });
+        });*/
 
     });
 

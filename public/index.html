@@ -5,13 +5,12 @@
     <!-- Optimize mobile viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Node/Angular Cart App</title>
-     <script src="css/jquery.min.js"></script>
+     <script src="css/jquery/jquery.min.js"></script>
      <link rel="stylesheet" href="css/main.css"><!-- load bootstrap -->
-     <script src="css/bootstrap.min.js"></script><!-- load bootstrap -->
+     <script src="css/boostrap/bootstrap.js"></script><!-- load bootstrap -->
     </head>
 <body ng-controller="mainController">
     <div class="container">
-
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
             <div class="container-fluid" id="navfluid">
                 <div class="navbar-header">
@@ -32,15 +31,7 @@
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
-    </nav>
-
-       <!-- <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-            <li><a href="#add">Admin</a></li>
-            <li><a href="#/">Shopping</a></li>
-            <li><a href="#checkout">View cart</a></li>
-        </ul>
-    </nav>-->
+        </nav>
 
         <div ng-view>
        
@@ -48,14 +39,18 @@
       
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script><!-- load angular -->
-    <!--<script src="bower_components/angular/angular.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script><!-- load angularjs router -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="../css/angularFile/dist/angular-file-upload.min.js"></script>
+<!--    <script src="../css/angular/angular.js"></script>
+    <script src="../css/angularRoute/angular-route.js"></script>-->
     <script src="js/core.js"></script>
     <script src="js/services/carts.js"></script> <!-- load our todo service -->
     <script src="js/services/orderservice.js"></script> <!-- load our todo service -->
     <script src="js/controllers/main.js"></script> <!-- load up our controller -->
     <script src="js/controllers/checkctrl.js"></script> <!-- load up our controller -->
+
+  
   
 </body>
 </html>

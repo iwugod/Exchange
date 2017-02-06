@@ -16,6 +16,12 @@ var bootstrapSass = {
 var jqueryPlugin = {
         in: './bower_components/jquery/'
     };
+
+
+    // AngularJS
+var angualrPlugin = {
+        in: './bower_components/'
+    };
     
 // fonts
 var fonts = {
@@ -26,9 +32,23 @@ var fonts = {
     // jquery
 var jry = {
         in: [source + 'dist/*.*', jqueryPlugin.in + 'dist/**/*'],
-        out: dest + 'css/'
+        out: dest + 'css/jquery'
     };
 
+var angularjs = {
+    in: [source + 'angular/*.*', angualrPlugin.in + 'angular/**/*'],
+    out: dest + 'css/angular'
+};
+
+var angularjsRoute = {
+    in: [source + 'angular-route/*.*', angualrPlugin.in + 'angular-route/**/*'],
+    out: dest + 'css/angularRoute'
+};
+
+var angularjsFile = {
+    in: [source + 'angular-file-upload/*.*', angualrPlugin.in + 'angular-file-upload/**/*'],
+    out: dest + 'css/angularFile'
+};
 
 // css source file: .scss files
 var css = {
@@ -46,7 +66,7 @@ var css = {
 // boostrap.min.js
 var bootMin = {
         in: [source + 'javascripts/*.*', bootstrapSass.in + 'assets/javascripts/**/*'],
-        out: dest + 'css/'
+        out: dest + 'css/boostrap'
     };
 
 gulp.task('bootstrap', function () {
@@ -61,16 +81,34 @@ return gulp
     .pipe(gulp.dest(jry.out));
 });
 
+gulp.task('anguljs', function(){
+    return gulp
+    .src(angularjs.in)
+     .pipe(gulp.dest(angularjs.out));
+});
+
+gulp.task('angularjsRt', function(){
+    return gulp
+    .src(angularjsRoute.in)
+     .pipe(gulp.dest(angularjsRoute.out));
+});
+
+gulp.task('angularjsFls', function(){
+    return gulp
+    .src(angularjsFile.in)
+     .pipe(gulp.dest(angularjsFile.out));
+});
+
 // copy bootstrap required fonts to dest
 gulp.task('fonts', function () {
-    return gulp
-        .src(fonts.in)
-        .pipe(gulp.dest(fonts.out));
+return gulp
+    .src(fonts.in)
+    .pipe(gulp.dest(fonts.out));
 });
 
 // compile scss
 gulp.task('sass', ['fonts'], function () {
-    return gulp.src(css.in)
+return gulp.src(css.in)
     .pipe(plumber())
     .pipe(sass(css.sassOpts))
     .pipe(gulp.dest(css.out));

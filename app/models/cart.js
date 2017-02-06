@@ -7,6 +7,6 @@ module.exports = mongoose.model('Cart', {
     title : String,
     description:String,
     price: Number,
-    quantity: {'type': Number, 'default': 0}
-    //image: { data: Buffer, contentType: String }
+    quantity: {'type': Number, 'default': 0},
+    image: String
 });

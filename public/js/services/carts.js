@@ -15,22 +15,17 @@ angular.module('myApp')
             return $http.get('/api/cart/' + id)
         },
 
-        create : function() {
+        /*create : function() {
             return $http.post('/api/cart');
-        },
+        },*/
 
-         put : function(id) {
-            return $http.put('/api/cart/'+ id);
+         put : function(id, quantity) {
+            return $http.put('/api/cart/'+ id,{quantity:quantity});
         },
 
         delete : function(id) {
             return $http.delete('/api/cart/' + id);
         },
-
-        /*data : {
-            firstname:'Hello',
-            lastname : 'Hippo'
-        }*/
 
     }
 })

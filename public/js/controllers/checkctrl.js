@@ -13,10 +13,10 @@ angular.module('myApp')
             let _id =item._id;
             let quantity = item.quantity;
             console.log(quantity);
-          /*Carts.put(_id,quantity)
-          .success(function(data){
-              console.log(data);
-          })*/
+            Carts.put(_id,quantity)
+            .success(function(data){
+                console.log(data);
+            })
         })
     }
 

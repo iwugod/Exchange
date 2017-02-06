@@ -38,6 +38,9 @@
       box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
       margin: 10px;
       padding: 10px 0; }
+      .container .stock-wrapper .cart-box .item-img {
+        width: 50px;
+        height: 50px; }
     .container .stock-wrapper .item-count {
       color: #db6363; }
     .container .stock-wrapper .item-qty {

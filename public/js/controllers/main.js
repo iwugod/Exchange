@@ -1,7 +1,7 @@
 angular.module('myApp')
 
 .controller('mainController', function($scope, $http, Carts, userOrder){
-    $scope.formData = {};
+    $scope.product = {};
     $scope.selectedCarts = {
         items: []
     };
@@ -28,12 +28,14 @@ angular.module('myApp')
             title : index.title,
             quantity: index.quantity,
             description: index.description,
-            price: index.price
+            price: index.price,
+            image:index.image
+           
         });
     
         $scope.cookie = $scope.selectedCarts.items;
         var result = userOrder.set($scope.cookie);
-        //console.log(result);
+        console.log($scope.cookie);
     }
 
     //Remove item from cart
@@ -50,23 +52,45 @@ angular.module('myApp')
     })
         return total;
     },
-
+/*
+  $scope.onUploadSelect = function($files) {
+    $scope.formData.newUploadName = $files[0].name;
+ };*/
      // CREATE ==================================================================
         // when submitting the add form, send the text to the node API
    $scope.createCart = function() {
+       
+    var formData = new FormData;
 
-       if(!$.isEmptyObject($scope.formData)) {
+    for(key in $scope.product) {
+     //console.log($scope.product[key]);
+     formData.append(key, $scope.product[key]);
+    }
 
-       $http.post('/api/cart',$scope.formData)
+    var file = $('#file')[0].files[0];
+    //console.log(file);
+    formData.append('image', file);
+
+    //now post it 
+    $http.post('/api/cart', formData,{
+        transformRequest: angular.identity,
+        headers: {
+            'Content-Type':undefined
+        }
+    })
+    .then(function(res) {
+        $scope.carts = res.data;
+        console.log($scope.carts);  
+    })
+
+      /* $http.post('/api/cart',$scope.product)
        .success(function(data){
-           $scope.formData = {};
+           //$scope.formData = {};
            $scope.carts = data;
        })
        .error(function(data){
          console.log('Error', +data);  
-       });
-
-    }
+       });*/
    },
 
     // delete ==================================================================
