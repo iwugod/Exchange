@@ -52,10 +52,7 @@ angular.module('myApp')
     })
         return total;
     },
-/*
-  $scope.onUploadSelect = function($files) {
-    $scope.formData.newUploadName = $files[0].name;
- };*/
+
      // CREATE ==================================================================
         // when submitting the add form, send the text to the node API
    $scope.createCart = function() {
@@ -104,6 +101,16 @@ angular.module('myApp')
                 console.log('Error: ' + data);
         });
      }
+})
 
-   
-});
+.directive('inputValidation', function(){
+    return {
+        restrict:'E',
+        link: function(scope, elem, attr) {
+            elem.bind('click', function(){
+                console.log(elem[0]);
+            });
+        },
+        template: 'Hello World'
+    }
+})

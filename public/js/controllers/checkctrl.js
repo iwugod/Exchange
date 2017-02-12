@@ -5,8 +5,6 @@ angular.module('myApp')
     //$scope.order = Carts.data.firstname;
     //getter method for order
     $scope.selection = userOrder.get();
-    var info;
-
 
     $scope.updateCart = function() {
         angular.forEach(userOrder.get(), function(item) {

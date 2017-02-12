@@ -30,17 +30,13 @@
     app.use("/img", express.static(__dirname + "/public/images"));
     app.use("/css", express.static(__dirname + "/public/js"));
 
-    app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/public/index.html');
-    });
-
-    app.get('/add', function (req, res) {
-    res.sendfile(__dirname + '/public/add.html');
-    });
-
-
     // routes ======================================================================
     require('./app/routes.js')(app);
+
+     app.all('*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('/public/index.html', { root: __dirname});
+    });
 
     // listen (start app with node server.js) ======================================
     app.listen(port);
